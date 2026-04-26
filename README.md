@@ -1,6 +1,6 @@
 # lex-lero
 
-Site estático de humor para transformar frases diretas em juridiquês ornamental.
+Site estatico de humor para transformar frases diretas em juridiquês ornamental.
 
 ## Como abrir
 
@@ -13,10 +13,10 @@ python -m http.server 4173
 
 Depois, acesse `http://127.0.0.1:4173`.
 
-## O que há no site
+## O que ha no site
 
 - Campo para digitar a frase original
-- Nível de lero-lero
-- Modo de saída jurídica
-- Botão para copiar o resultado
-- Exemplos rápidos e análise lexical
+- Nivel de lero-lero
+- Modo de saida juridica
+- Botao para copiar o resultado
+- Exemplos rapidos e analise lexical
