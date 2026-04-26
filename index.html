@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="lex-lero: tradutor humorístico de frases cotidianas para juridiquês ornamental."
+    />
+    <title>lex-lero | Gerador de lero-lero jurídico</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+    <div class="bg-orb bg-orb-3" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">LX</div>
+        <div>
+          <p class="eyebrow">Tradutor de vernáculo para juridiquês ornamental</p>
+          <h1>lex-lero</h1>
+        </div>
+      </div>
+
+      <p class="topbar-note">
+        Uso humorístico. Não substitui redação jurídica, petição ou parecer.
+      </p>
+    </header>
+
+    <main class="shell">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="hero-pill">Lero-lero jurídico sob medida</span>
+          <h2>Escreva de forma direta. Saia com uma versão cheia de latinismos e solenidade.</h2>
+          <p class="hero-text">
+            O <strong>lex-lero</strong> pega frases comuns, troca expressões por linguagem forense
+            e entrega um texto com a pompa suficiente para parecer peça processual.
+          </p>
+
+          <div class="hero-actions">
+            <button class="button button-primary" id="fill-example-hero" type="button">
+              Usar exemplo
+            </button>
+            <button class="button button-secondary" id="randomize-hero" type="button">
+              Surpreenda-me
+            </button>
+          </div>
+        </div>
+
+        <aside class="seal-card" aria-label="Manifesto do sistema">
+          <div class="seal" aria-hidden="true">
+            <span>§</span>
+          </div>
+          <p class="seal-title">Manifesto de estilo</p>
+          <ul class="seal-list">
+            <li>Frase curta vira perífrase.</li>
+            <li>Insulto vira perícia retórica.</li>
+            <li>Clareza cede espaço para solenidade.</li>
+          </ul>
+        </aside>
+      </section>
+
+      <section class="converter-grid">
+        <form class="composer card" id="composer" autocomplete="off">
+          <div class="section-heading">
+            <p class="eyebrow">Entrada</p>
+            <h3>Texto original</h3>
+          </div>
+
+          <label class="sr-only" for="input-text">Frase original</label>
+          <textarea
+            id="input-text"
+            name="input-text"
+            rows="6"
+            spellcheck="false"
+            placeholder="Digite algo como: o senhor é um vagbundo corrupto"
+          ></textarea>
+
+          <div class="example-row" aria-label="Exemplos rápidos">
+            <span class="example-label">Exemplos:</span>
+            <div class="chip-list" id="example-list">
+              <button class="chip" type="button" data-example="o senhor é um vagbundo corrupto">
+                o senhor é um vagbundo corrupto
+              </button>
+              <button class="chip" type="button" data-example="você mentiu para mim">
+                você mentiu para mim
+              </button>
+              <button class="chip" type="button" data-example="esse serviço é ruim">
+                esse serviço é ruim
+              </button>
+              <button class="chip" type="button" data-example="pare de encher o saco">
+                pare de encher o saco
+              </button>
+            </div>
+          </div>
+
+          <div class="controls">
+            <label class="control">
+              <span>Modo</span>
+              <select id="mode">
+                <option value="peticao">Petição</option>
+                <option value="parecer">Parecer</option>
+                <option value="sentenca">Sentença</option>
+                <option value="despacho">Despacho</option>
+              </select>
+            </label>
+
+            <label class="control control-range">
+              <span>Grau de lero-lero</span>
+              <input id="intensity" type="range" min="1" max="5" step="1" value="3" />
+              <strong id="intensity-label">Equilibrado</strong>
+            </label>
+          </div>
+
+          <div class="actions">
+            <button class="button button-primary" id="convert-button" type="submit">
+              Converter para juridiquês
+            </button>
+            <button class="button button-secondary" id="clear-button" type="button">
+              Limpar
+            </button>
+          </div>
+        </form>
+
+        <section class="result card" aria-live="polite">
+          <div class="section-heading result-heading">
+            <div>
+              <p class="eyebrow">Saída</p>
+              <h3>Versão jurídica gerada</h3>
+            </div>
+            <div class="result-badges">
+              <span class="badge" id="stats-badge">0 trocas</span>
+              <span class="badge badge-ghost" id="mode-badge">Petição</span>
+            </div>
+          </div>
+
+          <div class="result-body">
+            <output id="output-text" class="output-text">
+              Digite uma frase para obter a versão em juridiquês.
+            </output>
+            <div class="output-actions">
+              <button class="button button-primary" id="copy-button" type="button">
+                Copiar resultado
+              </button>
+              <button class="button button-secondary" id="example-button" type="button">
+                Carregar exemplo
+              </button>
+            </div>
+          </div>
+
+          <div class="trace-panel">
+            <div class="trace-header">
+              <p class="eyebrow">Análise lexical</p>
+              <span class="trace-caption">Substituições detectadas no texto</span>
+            </div>
+            <div class="trace-list" id="trace-list">
+              <span class="trace-empty">Ainda não há trocas para mostrar.</span>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section class="info-grid">
+        <article class="info-card card">
+          <p class="eyebrow">Como funciona</p>
+          <h3>3 passos para inflar a frase</h3>
+          <p>
+            O sistema detecta palavras comuns, injeta fórmulas de cortesia e reorganiza o tom
+            para soar como uma peça mais solene do que realmente precisa ser.
+          </p>
+        </article>
+
+        <article class="info-card card">
+          <p class="eyebrow">Tom</p>
+          <h3>Humor com aparência de formalidade</h3>
+          <p>
+            O objetivo é brincar com a linguagem jurídica, não substituir escrita profissional.
+            Você pode ajustar o exagero com o seletor de lero-lero.
+          </p>
+        </article>
+
+        <article class="info-card card">
+          <p class="eyebrow">Entrega</p>
+          <h3>Copiar com um clique</h3>
+          <p>
+            O resultado fica pronto para colar onde você quiser, e o site guarda as últimas
+            preferências no navegador.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>
+        lex-lero. Tradutor de frases diretas para juridiquês ornamental.
+      </p>
+    </footer>
+  </body>
+</html>

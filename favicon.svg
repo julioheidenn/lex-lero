@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="lex-lero">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#214f45"/>
+      <stop offset="100%" stop-color="#a36f35"/>
+    </linearGradient>
+    <radialGradient id="r" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#fffdf8"/>
+      <stop offset="100%" stop-color="#f0e5d2"/>
+    </radialGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#r)"/>
+  <circle cx="64" cy="64" r="45" fill="none" stroke="url(#g)" stroke-width="6"/>
+  <circle cx="64" cy="64" r="34" fill="none" stroke="#7c3f3d" stroke-width="2" stroke-dasharray="4 6" opacity="0.55"/>
+  <text x="64" y="74" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="42" font-weight="700" fill="#214f45">LX</text>
+</svg>
